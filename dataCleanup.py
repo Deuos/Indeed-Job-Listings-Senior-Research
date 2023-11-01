@@ -25,8 +25,11 @@ common_words = [word for word, freq in word_freq.most_common(500)]
 stop_words.update(common_words)
 
 #Custom Words, add your own
-custom_stop_words = ["support", "sexual", "New York", "new york", "new", "york", "New", "York","Connecticut","Massachusetts", "gender", "salary", "range", "race", "color", "including", "national", "origin", "ability", "experience", "requirements", "using", 'the', 'and', 'in', 'to', 'for', 'with', 'a', 'an', 'of', 'on', 'at',
-    'is', 'as', 'by', 'from', 'within', 'under', 'over', 'through', 'its',
+custom_stop_words = ["support", "sexual", "New York", "new york", "new", 
+    "york", "New", "York","Connecticut","Massachusetts", "gender", "salary", 
+    "range", "race", "color", "including", "national", "origin", "ability", 
+    "experience", "requirements", "using", 'the', 'and', 'in', 'to', 'for', 
+    'with', 'a', 'an', 'of', 'on', 'at', 'is', 'as', 'by', 'from', 'within',
     'your', 'you', 'our', 'we', 'will', 'be', 'or', 'that', 'this', 'such',
     'such as', 'including', 'include', 'require', 'requirements', 'requirement',
     'job', 'position', 'role', 'title', 'description', 'responsibilities',
@@ -45,7 +48,8 @@ custom_stop_words = ["support", "sexual", "New York", "new york", "new", "york",
     'position', 'employee', 'candidates', 'apply', 'applying', 'years', 'offer',
     'posting', 'hiring', 'hire', 'job', 'opportunity', 'today', 'join', 'employment',
     'new', 'employee', 'candidates', 'including', 'candidates', 'employee', 'candidates',
-    'successful', 'candidates', 'join', 'team', 'offer', 'including', 'including', 'qualified', "Support", "Sexual", "New York", "New York", "New", "York", "New", "York", "Connecticut",
+    'successful', 'candidates', 'join', 'team', 'offer', 'including', 'including', 'qualified', 
+    "Support", "Sexual", "New York", "New York", "New", "York", "New", "York", "Connecticut",
     "Massachusetts", "Gender", "Salary", "Range", "Race", "Color", "Including", "National",
     "Origin", "Ability", "Experience", "Requirements", "Using", 'The', 'And', 'In', 'To', 'For',
     'With', 'A', 'An', 'Of', 'On', 'At', 'Is', 'As', 'By', 'From', 'Within', 'Under', 'Over',
@@ -63,7 +67,7 @@ custom_stop_words = ["support", "sexual", "New York", "new york", "new", "york",
     'Employee', 'Employer', 'Years', 'Position', 'Employee', 'Candidates', 'Apply', 'Applying', 'Years',
     'Offer', 'Posting', 'Hiring', 'Hire', 'Job', 'Opportunity', 'Today', 'Join', 'Employment', 'New', 'Employee',
     'Candidates', 'Including', 'Candidates', 'Employee', 'Candidates', 'Successful', 'Candidates', 'Join', 'Team',
-    'Offer', 'Including', 'Including', 'Qualified']
+    'Offer', 'Including', 'Including', 'Qualified', 'under', 'over', 'through', 'its', 'CVS Health', 'Andor']
 
 # Adds custom list to the total list.
 stop_words.update(custom_stop_words)
@@ -74,7 +78,7 @@ stop_words.update(custom_stop_words)
 #Add columns you want
 columns_to_read = ["description"]
 
-# Read the CSV, Add the csv file here
+# Read the CSV, Add the csv file here "./Folder/File"
 df = pd.read_csv('jobsNewYork.csv', usecols=columns_to_read)
 
 #Removes any special characters

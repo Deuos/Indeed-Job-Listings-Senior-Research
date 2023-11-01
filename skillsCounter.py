@@ -26,7 +26,7 @@ for index, row in df.iterrows():
 #for language, count in language_counts.items():
 #    print(f"{language}: {count} times")
 
-# If you want to visualize the counts in a Pandas DataFrame:
+# IN Pandas
 result_df = pd.DataFrame(language_counts.items(), columns=["Language", "Count"])
 print(result_df)
 
@@ -35,8 +35,8 @@ plt.figure(figsize=(12, 6))  # Adjust the figure size as needed
 plt.bar(result_df["Language"], result_df["Count"])
 plt.xlabel("Language")
 plt.ylabel("Count")
-plt.title("Programming Language Usage in Job Descriptions")
-plt.xticks(rotation=90)  # Rotate x-axis labels for better readability
+plt.title("Programming Language")
+plt.xticks(rotation=90)
 
-plt.tight_layout()  # Ensures the labels fit in the figure
+plt.tight_layout()
 plt.show()
