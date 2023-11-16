@@ -2,9 +2,10 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 
+
 # Read the CSV
 columns_to_read = ["description"]
-df = pd.read_csv('data/jobsNewYork.csv', usecols=columns_to_read)
+df = pd.read_csv(r'cleanedData\NewYorkcleaned.csv', usecols=columns_to_read)
 
 #Total count
 language_counts = {}
@@ -30,13 +31,17 @@ for index, row in df.iterrows():
 result_df = pd.DataFrame(language_counts.items(), columns=["Language", "Count"])
 print(result_df)
 
-#Bar graph
-plt.figure(figsize=(12, 6))  # Adjust the figure size as needed
-plt.bar(result_df["Language"], result_df["Count"])
-plt.xlabel("Language")
-plt.ylabel("Count")
-plt.title("Programming Language")
-plt.xticks(rotation=90)
+# Calculate percentages
+result_df['Percentage'] = (result_df['Count'] / result_df['Count'].sum()) * 100
 
-plt.tight_layout()
+#Top 10 Only
+result_df = result_df.sort_values(by='Count', ascending=False).head(10)
+
+#Bar graph
+plt.figure(figsize=(12, 6))
+plt.pie(result_df["Percentage"], labels=result_df["Language"], autopct='%1.1f%%', startangle=90)
+plt.axis('equal')  # Equal aspect ratio ensures that the pie is drawn as a circle.
+
+plt.title("Programming Language Distribution for New York")
+plt.savefig("skills/NewYorkSkills.png")
 plt.show()

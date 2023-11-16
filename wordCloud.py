@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Read the CSV
 columns_to_read = ["description"]
-df = pd.read_csv('cleanedData\Connecticutcleaned.csv', usecols=columns_to_read)
+df = pd.read_csv(r'cleanedData\NewYorkcleaned.csv', usecols=columns_to_read)
 
 # Combine all descriptions into a single text
 text = " ".join(df["description"])
@@ -17,5 +17,5 @@ plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
 #Save to file
-plt.savefig("wordcloud/connecticutWordCloud.png")
+plt.savefig("wordcloud/NewYorkWordCloud.png")
 plt.show()

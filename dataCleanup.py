@@ -67,7 +67,9 @@ custom_stop_words = ["support", "sexual", "New York", "new york", "new",
     'Employee', 'Employer', 'Years', 'Position', 'Employee', 'Candidates', 'Apply', 'Applying', 'Years',
     'Offer', 'Posting', 'Hiring', 'Hire', 'Job', 'Opportunity', 'Today', 'Join', 'Employment', 'New', 'Employee',
     'Candidates', 'Including', 'Candidates', 'Employee', 'Candidates', 'Successful', 'Candidates', 'Join', 'Team',
-    'Offer', 'Including', 'Including', 'Qualified', 'under', 'over', 'through', 'its', 'CVS Health', 'Andor']
+    'Offer', 'Including', 'Including', 'Qualified', 'under', 'over', 'through', 'its', 'CVS Health', 'Andor', 'work',
+    'team', 'ensure', 'processes', 'provide', 'experience', 'sarced heart', 'business', 'Business', 'Working', 'working',
+    'Veteran Status', 'Veteran', 'Status', 'Related', 'Field', 'Related Field', 'Applications', 'Services', 'Preferred']
 
 # Adds custom list to the total list.
 stop_words.update(custom_stop_words)
@@ -79,12 +81,16 @@ stop_words.update(custom_stop_words)
 columns_to_read = ["description"]
 
 # Read the CSV, Add the csv file here "./Folder/File"
-df = pd.read_csv('jobsNewYork.csv', usecols=columns_to_read)
+df = pd.read_csv(r'data\jobsNewYork.csv', usecols=columns_to_read)
 
 #Removes any special characters
 df['description'] = df['description'].str.replace(r'[^a-zA-Z\s]', '', regex=True)
 
+#df['label'].dropna(inplace=True)
+#tokens = df['label'].apply(word_tokenize)
+
 # Tokenize the "description" column
+df = df.dropna(subset=['description'])
 df['description'] = df['description'].apply(lambda x: word_tokenize(x))
 
 #removes stopwords from description
@@ -101,6 +107,6 @@ df['description'] = df['description'].apply(remove_stop_words)
 df['description'] = df['description'].apply(lambda words: [word.title() for word in words])
 
 #Converts to csv file
-df.to_csv('NewYorkcleaned.csv', index=False)
+df.to_csv(r'cleanedData\NewYorkcleaned.csv', index=False)
 
 print(df, "Success") 
