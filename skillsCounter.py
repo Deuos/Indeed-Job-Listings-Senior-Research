@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Read the CSV
 columns_to_read = ["description"]
-df = pd.read_csv(r'cleanedData\NewYorkcleaned.csv', usecols=columns_to_read)
+df = pd.read_csv('cleanedData\Massachusettscleaned.csv', usecols=columns_to_read)
 
 #Total count
 language_counts = {}
@@ -39,9 +39,9 @@ result_df = result_df.sort_values(by='Count', ascending=False).head(10)
 
 #Bar graph
 plt.figure(figsize=(12, 6))
-plt.pie(result_df["Percentage"], labels=result_df["Language"], autopct='%1.1f%%', startangle=90)
+plt.pie(result_df["Percentage"], labels=result_df["Language"], autopct='%1.1f%%', startangle=90, textprops={'fontsize': 14})  # Adjust fontsize here
 plt.axis('equal')  # Equal aspect ratio ensures that the pie is drawn as a circle.
 
-plt.title("Programming Language Distribution for New York")
-plt.savefig("skills/NewYorkSkills.png")
+plt.title("Programming Language Distribution for Massachusetts", fontsize=16)  # Adjust title fontsize here
+plt.savefig("skillsperstate/MassachusettsSkills.png")
 plt.show()
