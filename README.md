@@ -20,4 +20,4 @@ This is code + data for the Senior Research Project at ECSU by Kush and Jin.
 
 ## Research Paper
 
-* Pdf Link
+* [Pdf Link](https://github.com/Deuos/Indeed-Job-Listings-Senior-Research/blob/master/Computer%20Science%20Job%20Postings%20in%20New%20York%2C%20Massachusetts%2C%20and%20Connecticut%20-%20A%20Study%20on%20Job%20Requirements%20and%20Salary%20Trends.pdf)
